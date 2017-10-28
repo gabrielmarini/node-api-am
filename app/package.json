@@ -1,0 +1,24 @@
+{
+  "name": "node-api",
+  "version": "1.0.0",
+  "description": "Teste de API com NODE JS",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel Marini",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-node6": "^11.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bodymen": "^1.0.3",
+    "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.12.4",
+    "querymen": "^2.1.3"
+  }
+}
