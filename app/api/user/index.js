@@ -1,12 +1,11 @@
 import { Router } from 'express'
-import UserController from './controller'
 import User from './model'
+import { show, showId, insertPost } from './controller'
 
 const router = new Router()
-const userController = new UserController(User)
 
-router.get('/', (req, res) => userController.get(req, res))
-router.post('/', (req, res) => userController.post(req, res))
-router.get('/:id', (req, res) => userController.getOne(req, res))
+router.get('/', show)
+router.post('/', insertPost)
+router.get('/:id', showId)
 
 export default router

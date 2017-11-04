@@ -1,11 +1,10 @@
 import { Router } from 'express'
-import RocketController from './controller'
-import Rocket from './model'
+import { show, showID, insertPost } from './controller'
 
 const router = new Router()
-const rocketController = new RocketController(Rocket)
 
-router.get('/', (req, res) => rocketController.get(req,res))
-router.post('/', (req,res) => rocketController.post(req,res))
+router.get('/', show)
+router.get('/:id', showID)
+router.post('/', insertPost)
 
 export default router
