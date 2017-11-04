@@ -4,7 +4,7 @@
   "description": "Teste de API com NODE JS",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./server.js",
+    "start": "nodemon --exec babel-node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gabriel Marini",
