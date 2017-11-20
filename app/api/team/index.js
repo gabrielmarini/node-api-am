@@ -1,24 +1,18 @@
 import { Router } from 'express'
 import { middleware as query } from 'querymen'
 import { middleware as body } from 'bodymen'
-import Rocket from './model'
-import { index, showID, create } from './controller'
+import Team from './model'
+import User from '../user/model'
+import Rocket from '../rocket/model'
+import { index, create, showID } from './controller'
 
 const router = new Router()
 
-router.get('/',
-query({
+router.get('/',query({
     name: {
-        name: Rocket.name
-    },
-    material: {
-        material: Rocket.material
-    },
-    color: {
-        color: Rocket.color
+        name: Team.name
     }
-})
-,index)
+}), index)
 
 router.post('/',
 body({
@@ -26,11 +20,11 @@ body({
         type: String,
         required: true
     },
-    material: {
-        type: String,
+    users: {
+        type: [String],
         required: true
     },
-    color: {
+    rocket: {
         type: String,
         required: true
     }

@@ -1,40 +1,34 @@
 import mongoose, { Schema } from 'mongoose'
 
-const userSchema = new Schema({
+const eventSchema = new Schema({
     name: {
         type: String,
         required: true
     },
-    email: {
-        type: String,
-        required: true
-    },
-    rm: {
-        type: Number,
-        required: true,
-        index: true
-    },
     location: {
         type: String,
         required: true
-    }   
+    },
+    date: {
+        type: Date,
+        required: true
+    }
 })
 
-userSchema.methods = {
+eventSchema.methods = {
     view(full){
         const view = {
             id: this.id,
             name: this.name,
-            email: this.email,
-            rm: this.rm,
-            location: this.location
+            location: this.location,
+            date: this.date
         }
 
         return view
     }
 }
 
-const model = mongoose.model('User', userSchema);
+const model = mongoose.model('Event', eventSchema)
 
 export const schema = model.schema
 export default model

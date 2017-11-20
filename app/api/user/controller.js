@@ -2,8 +2,8 @@ import _ from 'lodash'
 import User from './model'
 import {success, notFound} from '../../services/response'
 
-export const show = (req, res, next) => {
-    User.find({})
+export const index = ({ querymen: {query,selct,cursor} }, res, next) => {
+    User.find(query,selct,cursor)
     .then(notFound(res))
     .then(user => user.map((user) => user.view(true)))
     .then(success(res,201))
@@ -18,8 +18,8 @@ export const showId = (req, res, next) => {
     .catch(next)
 }
 
-export const insertPost = (req, res, next) => {
-    User.create(req.body)
+export const create = ({ bodymen: {body}}, res, next) => {
+    User.create(body)
     .then(user => user.view(true))
     .then(success(res,201))
     .catch(next)
